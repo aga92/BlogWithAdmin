@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @comment.post.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_comment_path(@comment) %> |
+<%= link_to 'Back', admin_comments_path %>

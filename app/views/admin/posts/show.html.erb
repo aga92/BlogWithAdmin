@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_post_path(@post) %> |
+<%= link_to 'Back', admin_posts_path %>
+
+<hr>
+<p>
+  <strong>Comments:</strong>
+<table>
+  <tbody>
+  <% Comment.find_by_post_id(@post.id) do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= link_to 'Show', admin_comment_path(comment) %></td>
+        <td><%= link_to 'Edit', edit_admin_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', admin_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= link_to 'New comment', new_admin_comment_path%>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</p>

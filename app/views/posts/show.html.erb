@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category.name %>
+</p>
+
+<%= link_to 'Back', posts_path %>
+
+<hr>
+<p>
+  <strong>Comments:</strong>
+<table>
+  <tbody>
+  <% Comment.find_by_post_id(@post.id) do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td>
+      <%= link_to 'New comment', new_comment_path%>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</p>
