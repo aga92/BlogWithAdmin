@@ -1,3 +1,6 @@
+module Admin
+
+end
 class Admin::AdminController < ApplicationController
   before_filter :auth_user
   def auth_user
